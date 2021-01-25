@@ -1,0 +1,40 @@
+basePath: /
+definitions:
+  request.Login:
+    properties:
+      nickname:
+        type: string
+      password:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: This is swagger sample for auto-manager
+  title: Auto-Manager Dev API
+  version: 0.0.1
+paths:
+  /v1/base/login:
+    post:
+      parameters:
+      - description: nickname, password
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.Login'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true, "data":{}, "msg":"登录成功"}'
+          schema:
+            type: string
+      summary: 管理员登录
+      tags:
+      - Base
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: x-token
+    type: apiKey
+swagger: "2.0"
