@@ -1,16 +1,16 @@
 package request
 
-type LoginRequest struct {
+type Login struct {
 	Nickname string `json:"nickname"`
 	Password string `json:"password"`
 }
 
-type RegisterRequest struct {
+type Register struct {
 	Nickname string `json:"nickname"`
 	Password string `json:"password"`
 }
 
-type ChangePasswdRequest struct {
+type ChangePasswd struct {
 	Nickname  string `json:"nickname"`
 	Password  string `json:"password"`
 	NewPasswd string `json:"newPasswd"`

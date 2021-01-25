@@ -8,8 +8,14 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// @Tags Base
+// @Summary 管理员登录
+// @Produce application/json
+// @Param data body request.Login true "nickname, password"
+// @Success 200 {string} json "{"success":true, "data":{}, "msg":"登录成功"}"
+// @Router /v1/base/login [post]
 func Login(c *gin.Context) {
-	var L request.LoginRequest
+	var L request.Login
 	_ = c.ShouldBindJSON(&L)
 	M := &model.Manager{
 		Nickname: L.Nickname,
@@ -39,6 +45,6 @@ func GetManagerList(c *gin.Context) {
 
 }
 
-func token(m *model.Manager) {
+func token(c *gin.Context, m *model.Manager) {
 
 }
