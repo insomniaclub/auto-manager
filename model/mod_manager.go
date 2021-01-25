@@ -1,7 +1,7 @@
 package model
 
 type Manager struct {
-	ID       string `json:"id"`
+	AM_MODEL
 	Nickname string `json:"nickname"`
 	Password string `json:"password"`
 }
