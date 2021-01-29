@@ -1,6 +1,8 @@
 package response
 
-import "auto-manager/model"
+import (
+	"auto-manager/model"
+)
 
 type Login struct {
 	Manager   model.Manager `json:"manager"`

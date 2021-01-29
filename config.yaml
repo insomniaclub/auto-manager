@@ -1,3 +1,11 @@
+# Auto-Manager Global Configuration
+
+# jwt configuration
+jwt:
+  signing-key: 'am-dev'
+  expires-time: 604800
+  buffer-time: 86400
+
 # system configuration
 system:
   port: 8888

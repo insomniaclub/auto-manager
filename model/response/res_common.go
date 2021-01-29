@@ -28,6 +28,14 @@ func FailWithMessage(msg string, c *gin.Context) {
 	Result(ERROR, "", msg, c)
 }
 
+func FailWithDetail(data interface{}, msg string, c *gin.Context) {
+	Result(ERROR, data, msg, c)
+}
+
 func OkWithMessage(msg string, c *gin.Context) {
 	Result(SUCCESS, "", msg, c)
+}
+
+func OkWithDetail(data interface{}, msg string, c *gin.Context) {
+	Result(SUCCESS, data, msg, c)
 }
