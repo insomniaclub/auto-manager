@@ -1,5 +1,23 @@
 basePath: /
 definitions:
+  model.Position:
+    properties:
+      id:
+        type: integer
+      position:
+        type: string
+      rfid_id:
+        type: integer
+    type: object
+  request.ChangePasswd:
+    properties:
+      id:
+        type: integer
+      newPasswd:
+        type: string
+      password:
+        type: string
+    type: object
   request.Login:
     properties:
       nickname:
@@ -13,7 +31,7 @@ info:
   title: Auto-Manager Dev API
   version: 0.0.1
 paths:
-  /v1/base/login:
+  /v1/base/token:
     post:
       parameters:
       - description: nickname, password
@@ -25,13 +43,104 @@ paths:
       produces:
       - application/json
       responses:
-        "200":
+        "201":
           description: '{"success":true, "data":{}, "msg":"登录成功"}'
           schema:
             type: string
       summary: 管理员登录
       tags:
+      - base
+  /v1/manager:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true, "data":{}, "msg":""}'
+          schema:
+            type: string
+      summary: 管理员密码修改
+      tags:
       - Base
+  /v1/manager/:id/passwd:
+    put:
+      parameters:
+      - description: id, passwd, passwdNew
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.ChangePasswd'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true, "data":{}, "msg":"修改成功"}'
+          schema:
+            type: string
+      summary: 管理员密码修改
+      tags:
+      - manager
+  /v1/position:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true, "data":{}, "msg":"成功"}'
+          schema:
+            type: string
+      summary: 获取RFID与地址对应表
+      tags:
+      - position
+    post:
+      parameters:
+      - description: -, rfid_id, position
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.Position'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: '{"success":true, "data":{}, "msg":"成功"}'
+          schema:
+            type: string
+      summary: 新增RFID与地址关系
+      tags:
+      - position
+  /v1/position/:id:
+    delete:
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: '{"success":true, "data":{}, "msg":"成功"}'
+          schema:
+            type: string
+      summary: 删除RFID与地址关系
+      tags:
+      - position
+    put:
+      parameters:
+      - description: -, rfid_id, position
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.Position'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true, "data":{}, "msg":"成功"}'
+          schema:
+            type: string
+      summary: 修改RFID与地址关系
+      tags:
+      - position
 securityDefinitions:
   ApiKeyAuth:
     in: header

@@ -5,9 +5,9 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func InitBaseRouter(r *gin.RouterGroup)  {
-	BaseRouter := r.Group("base")
+func InitBaseRouter(r *gin.RouterGroup) {
+	BaseRouter := r.Group("/base")
 	{
-		BaseRouter.POST("login", v1.Login)
+		BaseRouter.POST("/token", v1.Login)
 	}
 }

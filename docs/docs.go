@@ -24,13 +24,13 @@ var doc = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/v1/base/login": {
+        "/v1/base/token": {
             "post": {
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
-                    "Base"
+                    "base"
                 ],
                 "summary": "管理员登录",
                 "parameters": [
@@ -45,8 +45,151 @@ var doc = `{
                     }
                 ],
                 "responses": {
-                    "200": {
+                    "201": {
                         "description": "{\"success\":true, \"data\":{}, \"msg\":\"登录成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/manager": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Base"
+                ],
+                "summary": "管理员密码修改",
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true, \"data\":{}, \"msg\":\"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/manager/:id/passwd": {
+            "put": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "manager"
+                ],
+                "summary": "管理员密码修改",
+                "parameters": [
+                    {
+                        "description": "id, passwd, passwdNew",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.ChangePasswd"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true, \"data\":{}, \"msg\":\"修改成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/position": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "position"
+                ],
+                "summary": "获取RFID与地址对应表",
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true, \"data\":{}, \"msg\":\"成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "position"
+                ],
+                "summary": "新增RFID与地址关系",
+                "parameters": [
+                    {
+                        "description": "-, rfid_id, position",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.Position"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{\"success\":true, \"data\":{}, \"msg\":\"成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/position/:id": {
+            "put": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "position"
+                ],
+                "summary": "修改RFID与地址关系",
+                "parameters": [
+                    {
+                        "description": "-, rfid_id, position",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.Position"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true, \"data\":{}, \"msg\":\"成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "position"
+                ],
+                "summary": "删除RFID与地址关系",
+                "responses": {
+                    "204": {
+                        "description": "{\"success\":true, \"data\":{}, \"msg\":\"成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -56,6 +199,34 @@ var doc = `{
         }
     },
     "definitions": {
+        "model.Position": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "position": {
+                    "type": "string"
+                },
+                "rfid_id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "request.ChangePasswd": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "newPasswd": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
         "request.Login": {
             "type": "object",
             "properties": {

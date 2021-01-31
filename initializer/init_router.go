@@ -12,14 +12,16 @@ import (
 func InitRouters() (r *gin.Engine) {
 	r = gin.Default()
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
-	PublicGroup := r.Group("v1")
+	PublicGroup := r.Group("/v1")
 	{
 		router.InitBaseRouter(PublicGroup)
 	}
-	PrivateGroup := r.Group("v1")
-	PrivateGroup.Use(middleware.JWTAuth()).Use(middleware.InterceptorHandle())
+	PrivateGroup := r.Group("/v1")
+	// TODO 操作拦截
+	PrivateGroup.Use(middleware.JWTAuth()) //.Use(middleware.InterceptorHandle())
 	{
 		router.InitManagerRouter(PrivateGroup)
+		router.InitPositionRouter(PrivateGroup)
 	}
 	return r
 }

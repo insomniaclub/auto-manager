@@ -9,3 +9,9 @@ type Login struct {
 	Token     string        `json:"token"`
 	ExpiresAt int64         `json:"expiresAt"`
 }
+
+type Manager struct {
+	ID       uint   `json:"id"`
+	Nickname string `json:"nickname"`
+	Password string `json:"-"`
+}

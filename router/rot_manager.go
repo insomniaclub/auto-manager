@@ -2,16 +2,16 @@ package router
 
 import (
 	v1 "auto-manager/api/v1"
-	"auto-manager/middleware"
 	"github.com/gin-gonic/gin"
 )
 
 func InitManagerRouter(r *gin.RouterGroup) {
-	ManagerRouter := r.Group("manager").Use(middleware.OperationRecord())
+	// TODO 操作记录
+	ManagerRouter := r.Group("/manager") //.Use(middleware.OperationRecord())
 	{
-		ManagerRouter.POST("register", v1.AddManager)
-		ManagerRouter.PUT("changePasswd", v1.ChangePasswd)
-		ManagerRouter.DELETE("deleteManager", v1.DelManager)
-		ManagerRouter.GET("getManagerList", v1.GetManagerList)
+		ManagerRouter.POST("/", v1.AddManager)
+		ManagerRouter.PUT("/:id/passwd", v1.ChangePasswd)
+		ManagerRouter.DELETE("/:id", v1.DeleteManager)
+		ManagerRouter.GET("/", v1.GetManagerList)
 	}
 }
