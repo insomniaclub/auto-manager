@@ -8,7 +8,7 @@ import (
 
 // @title Auto-Manager Dev API
 // @version 0.0.1
-// @description This is swagger sample for auto-manager
+// @description Auto-Manager 的接口设置完全遵循Restful原则，具体参考API文档
 // @securityDefinitions.apikey ApiKeyAuth
 // @in header
 // @name x-token
