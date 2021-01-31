@@ -1,0 +1,23 @@
+[Auto-Manager] 2021-02-01 00:03:37	[31merror[0m	/home/gensliu/go/src/auto-manager/initializer/init_server.go:29	accept tcp [::]:8888: use of closed network connection
+[Auto-Manager] 2021-02-01 00:03:41	[34minfo[0m	/home/gensliu/go/src/auto-manager/initializer/init_server.go:20	Server run success on 	{"port": ":8888"}
+[Auto-Manager] 2021-02-01 00:05:36	[31merror[0m	/home/gensliu/go/src/auto-manager/initializer/init_server.go:29	accept tcp [::]:8888: use of closed network connection
+[Auto-Manager] 2021-02-01 00:05:38	[34minfo[0m	/home/gensliu/go/src/auto-manager/initializer/init_server.go:20	Server run success on 	{"port": ":8888"}
+[Auto-Manager] 2021-02-01 00:11:56	[31merror[0m	/home/gensliu/go/src/auto-manager/initializer/init_server.go:29	accept tcp [::]:8888: use of closed network connection
+[Auto-Manager] 2021-02-01 00:12:06	[34minfo[0m	/home/gensliu/go/src/auto-manager/initializer/init_server.go:20	Server run success on 	{"port": ":8888"}
+[Auto-Manager] 2021-02-01 00:12:22	[31merror[0m	/home/gensliu/go/src/auto-manager/initializer/init_server.go:29	accept tcp [::]:8888: use of closed network connection
+[Auto-Manager] 2021-02-01 00:12:50	[34minfo[0m	/home/gensliu/go/src/auto-manager/initializer/init_server.go:20	Server run success on 	{"port": ":8888"}
+[Auto-Manager] 2021-02-01 00:13:25	[31merror[0m	/home/gensliu/go/src/auto-manager/initializer/init_server.go:29	accept tcp [::]:8888: use of closed network connection
+[Auto-Manager] 2021-02-01 00:13:34	[34minfo[0m	/home/gensliu/go/src/auto-manager/initializer/init_server.go:20	Server run success on 	{"port": ":8888"}
+[Auto-Manager] 2021-02-01 00:18:57	[31merror[0m	/home/gensliu/go/src/auto-manager/initializer/init_server.go:29	accept tcp [::]:8888: use of closed network connection
+[Auto-Manager] 2021-02-01 00:58:04	[34minfo[0m	/home/gensliu/go/src/auto-manager/initializer/init_server.go:20	Server run success on 	{"port": ":8888"}
+[Auto-Manager] 2021-02-01 00:58:06	[31merror[0m	/home/gensliu/go/src/auto-manager/initializer/init_server.go:29	accept tcp [::]:8888: use of closed network connection
+[Auto-Manager] 2021-02-01 01:01:35	[34minfo[0m	/home/gensliu/go/src/auto-manager/initializer/init_server.go:20	Server run success on 	{"port": ":8888"}
+[Auto-Manager] 2021-02-01 01:02:12	[31merror[0m	/home/gensliu/go/src/auto-manager/initializer/init_server.go:29	accept tcp [::]:8888: use of closed network connection
+[Auto-Manager] 2021-02-01 01:02:15	[34minfo[0m	/home/gensliu/go/src/auto-manager/initializer/init_server.go:20	Server run success on 	{"port": ":8888"}
+[Auto-Manager] 2021-02-01 01:02:26	[31merror[0m	/home/gensliu/go/src/auto-manager/initializer/init_server.go:29	accept tcp [::]:8888: use of closed network connection
+[Auto-Manager] 2021-02-01 01:04:24	[34minfo[0m	/home/gensliu/go/src/auto-manager/initializer/init_server.go:20	Server run success on 	{"port": ":8888"}
+[Auto-Manager] 2021-02-01 01:04:31	[31merror[0m	/home/gensliu/go/src/auto-manager/initializer/init_server.go:29	accept tcp [::]:8888: use of closed network connection
+[Auto-Manager] 2021-02-01 01:38:39	[34minfo[0m	/home/gensliu/go/src/auto-manager/initializer/init_server.go:20	Server run success on 	{"port": ":8888"}
+[Auto-Manager] 2021-02-01 01:41:57	[31merror[0m	/home/gensliu/go/src/auto-manager/initializer/init_server.go:29	accept tcp [::]:8888: use of closed network connection
+[Auto-Manager] 2021-02-01 01:42:04	[34minfo[0m	/home/gensliu/go/src/auto-manager/initializer/init_server.go:20	Server run success on 	{"port": ":8888"}
+[Auto-Manager] 2021-02-01 01:43:18	[31merror[0m	/home/gensliu/go/src/auto-manager/initializer/init_server.go:29	accept tcp [::]:8888: use of closed network connection
