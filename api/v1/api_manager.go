@@ -67,8 +67,8 @@ func ChangePasswd(c *gin.Context) {
 	response.WithMessage(http.StatusOK, "修改成功", c)
 }
 
-// @Tags Base
-// @Summary 管理员密码修改
+// @Tags manager
+// @Summary 获取管理员列表
 // @Produce application/json
 // @Success 200 {string} json "{"success":true, "data":{}, "msg":""}"
 // @Router /v1/manager [get]

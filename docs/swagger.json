@@ -1,7 +1,7 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "This is swagger sample for auto-manager",
+        "description": "Auto-Manager 的接口设置完全遵循Restful原则，具体参考API文档",
         "title": "Auto-Manager Dev API",
         "contact": {},
         "version": "0.0.1"
@@ -38,15 +38,120 @@
                 }
             }
         },
+        "/v1/car": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "待完成"
+                ],
+                "summary": "新增记录",
+                "responses": {
+                    "201": {
+                        "description": "{\"success\":true, \"data\":{}, \"msg\":\"成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "待完成"
+                ],
+                "summary": "新增记录",
+                "parameters": [
+                    {
+                        "description": "rfid与车辆id的映射",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.RFID"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{\"success\":true, \"data\":{}, \"msg\":\"成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/car/:id": {
+            "put": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "待完成"
+                ],
+                "summary": "修改车辆信息",
+                "parameters": [
+                    {
+                        "description": "完整Car信息",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.Car"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{\"success\":true, \"data\":{}, \"msg\":\"成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "待完成"
+                ],
+                "summary": "新增记录",
+                "parameters": [
+                    {
+                        "description": "id",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{\"success\":true, \"data\":{}, \"msg\":\"成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "/v1/manager": {
             "get": {
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
-                    "Base"
+                    "manager"
                 ],
-                "summary": "管理员密码修改",
+                "summary": "获取管理员列表",
                 "responses": {
                     "200": {
                         "description": "{\"success\":true, \"data\":{}, \"msg\":\"\"}",
@@ -80,6 +185,113 @@
                 "responses": {
                     "200": {
                         "description": "{\"success\":true, \"data\":{}, \"msg\":\"修改成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/master": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "待完成"
+                ],
+                "summary": "获取用户列表",
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true, \"data\":{}, \"msg\":\"成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/master/:id": {
+            "put": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "待完成"
+                ],
+                "summary": "用户信息修改",
+                "parameters": [
+                    {
+                        "description": "完整的用户信息",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.Master"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true, \"data\":{}, \"msg\":\"成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "待完成"
+                ],
+                "summary": "注销账户",
+                "parameters": [
+                    {
+                        "description": "id",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true, \"data\":{}, \"msg\":\"成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/master/token": {
+            "post": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "待完成"
+                ],
+                "summary": "微信小程序认证",
+                "parameters": [
+                    {
+                        "description": "暂定OpenID",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true, \"data\":{}, \"msg\":\"登录成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -183,6 +395,61 @@
         }
     },
     "definitions": {
+        "model.Car": {
+            "type": "object",
+            "properties": {
+                "car_rfid_id": {
+                    "type": "integer"
+                },
+                "color": {
+                    "type": "string"
+                },
+                "flag": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "master_id": {
+                    "type": "integer"
+                },
+                "plate_number": {
+                    "type": "string"
+                },
+                "start_time": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.Master": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "id_number": {
+                    "type": "string"
+                },
+                "mobile_number": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "nickname": {
+                    "type": "string"
+                },
+                "open_id": {
+                    "type": "string"
+                },
+                "register_time": {
+                    "type": "string"
+                }
+            }
+        },
         "model.Position": {
             "type": "object",
             "properties": {
@@ -194,6 +461,23 @@
                 },
                 "rfid_id": {
                     "type": "integer"
+                }
+            }
+        },
+        "model.RFID": {
+            "type": "object",
+            "properties": {
+                "car_rfid_id": {
+                    "type": "integer"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "rfid_id": {
+                    "type": "integer"
+                },
+                "time": {
+                    "type": "string"
                 }
             }
         },

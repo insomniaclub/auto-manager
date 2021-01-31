@@ -1,5 +1,41 @@
 basePath: /
 definitions:
+  model.Car:
+    properties:
+      car_rfid_id:
+        type: integer
+      color:
+        type: string
+      flag:
+        type: string
+      id:
+        type: integer
+      master_id:
+        type: integer
+      plate_number:
+        type: string
+      start_time:
+        type: string
+      type:
+        type: string
+    type: object
+  model.Master:
+    properties:
+      id:
+        type: integer
+      id_number:
+        type: string
+      mobile_number:
+        type: string
+      name:
+        type: string
+      nickname:
+        type: string
+      open_id:
+        type: string
+      register_time:
+        type: string
+    type: object
   model.Position:
     properties:
       id:
@@ -8,6 +44,17 @@ definitions:
         type: string
       rfid_id:
         type: integer
+    type: object
+  model.RFID:
+    properties:
+      car_rfid_id:
+        type: integer
+      id:
+        type: integer
+      rfid_id:
+        type: integer
+      time:
+        type: string
     type: object
   request.ChangePasswd:
     properties:
@@ -27,7 +74,7 @@ definitions:
     type: object
 info:
   contact: {}
-  description: This is swagger sample for auto-manager
+  description: Auto-Manager 的接口设置完全遵循Restful原则，具体参考API文档
   title: Auto-Manager Dev API
   version: 0.0.1
 paths:
@@ -50,6 +97,73 @@ paths:
       summary: 管理员登录
       tags:
       - base
+  /v1/car:
+    get:
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: '{"success":true, "data":{}, "msg":"成功"}'
+          schema:
+            type: string
+      summary: 新增记录
+      tags:
+      - 待完成
+    post:
+      parameters:
+      - description: rfid与车辆id的映射
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.RFID'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: '{"success":true, "data":{}, "msg":"成功"}'
+          schema:
+            type: string
+      summary: 新增记录
+      tags:
+      - 待完成
+  /v1/car/:id:
+    delete:
+      parameters:
+      - description: id
+        in: body
+        name: data
+        required: true
+        schema:
+          type: integer
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: '{"success":true, "data":{}, "msg":"成功"}'
+          schema:
+            type: string
+      summary: 新增记录
+      tags:
+      - 待完成
+    put:
+      parameters:
+      - description: 完整Car信息
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.Car'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: '{"success":true, "data":{}, "msg":"成功"}'
+          schema:
+            type: string
+      summary: 修改车辆信息
+      tags:
+      - 待完成
   /v1/manager:
     get:
       produces:
@@ -59,9 +173,9 @@ paths:
           description: '{"success":true, "data":{}, "msg":""}'
           schema:
             type: string
-      summary: 管理员密码修改
+      summary: 获取管理员列表
       tags:
-      - Base
+      - manager
   /v1/manager/:id/passwd:
     put:
       parameters:
@@ -81,6 +195,74 @@ paths:
       summary: 管理员密码修改
       tags:
       - manager
+  /v1/master:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true, "data":{}, "msg":"成功"}'
+          schema:
+            type: string
+      summary: 获取用户列表
+      tags:
+      - 待完成
+  /v1/master/:id:
+    delete:
+      parameters:
+      - description: id
+        in: body
+        name: data
+        required: true
+        schema:
+          type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true, "data":{}, "msg":"成功"}'
+          schema:
+            type: string
+      summary: 注销账户
+      tags:
+      - 待完成
+    put:
+      parameters:
+      - description: 完整的用户信息
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.Master'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true, "data":{}, "msg":"成功"}'
+          schema:
+            type: string
+      summary: 用户信息修改
+      tags:
+      - 待完成
+  /v1/master/token:
+    post:
+      parameters:
+      - description: 暂定OpenID
+        in: body
+        name: data
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true, "data":{}, "msg":"登录成功"}'
+          schema:
+            type: string
+      summary: 微信小程序认证
+      tags:
+      - 待完成
   /v1/position:
     get:
       produces:
