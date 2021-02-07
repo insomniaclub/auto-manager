@@ -1,13 +1,19 @@
 package v1
 
+import (
+	"auto-manager/model/response"
+	"github.com/gin-gonic/gin"
+	"net/http"
+)
+
 // @Tags 待完成
 // @Summary 微信小程序认证
 // @Produce application/json
 // @Param data body string true "暂定OpenID"
 // @Success 200 {string} json "{"success":true, "data":{}, "msg":"登录成功"}"
 // @Router /v1/master/token [post]
-func Checkin() {
-
+func WxLogin(c *gin.Context) {
+	response.WithMessage(http.StatusOK, "Hello", c)
 }
 
 // @Tags 待完成

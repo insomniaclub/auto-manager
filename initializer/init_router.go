@@ -22,6 +22,7 @@ func InitRouters() (r *gin.Engine) {
 	{
 		router.InitManagerRouter(PrivateGroup)
 		router.InitPositionRouter(PrivateGroup)
+		router.InitMasterRouter(PrivateGroup)
 	}
 	return r
 }
